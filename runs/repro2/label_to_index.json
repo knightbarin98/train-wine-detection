@@ -1,0 +1,14 @@
+{
+  "classes": [
+    "beer_cider_bottle",
+    "beer_cider_cup",
+    "wine",
+    "non_alcoholic_beverage"
+  ],
+  "class_to_index": {
+    "beer_cider_bottle": 0,
+    "beer_cider_cup": 1,
+    "wine": 2,
+    "non_alcoholic_beverage": 3
+  }
+}
