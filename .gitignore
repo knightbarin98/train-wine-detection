@@ -1,0 +1,6 @@
+# Ignore dataset ZIP file
+dataset.zip
+
+# Ignore entire dataset directory and its contents
+dataset/*
+!dataset/.gitkeep

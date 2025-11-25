@@ -1,0 +1,60 @@
+conda env create -f wine-densenet.yml
+conda activate wine-densenet
+
+# 1. Baseline: fine-tune entire network
+python train_densenet121_keras.py --data ./dataset --out runs/baseline --epochs 20
+
+# 2. Frozen backbone (fast feature extractor)
+python train_densenet121_keras.py --data ./dataset --out runs/frozen --epochs 15 --freeze
+
+# 3. Small LR fine-tuning
+python train_densenet121_keras.py --data ./dataset --out runs/lr_1e5 --epochs 20 --lr 1e-5
+
+# 4. Reproducible experiment
+python train_densenet121_keras.py --data ./dataset --out runs/repro --epochs 20 --seed 42
+
+
+python train_densenet121_keras.py \
+  --data /path/to/dataset_root \
+  --out  runs/densenet121 \
+  --epochs 20 \
+  --batch 64
+
+
+python train_densenet121_keras.py \
+  --data /path/to/single_folder_dataset \
+  --out  runs/densenet121 \
+  --epochs 20 \
+  --batch 64 \
+  --split
+
+
+Optional flags
+
+--freeze to freeze the DenseNet base (feature extractor mode).
+
+--lr 1e-4 to tweak the learning rate.
+
+--seed 42 for reproducibility.
+
+What it produces
+
+Inside your --out folder:
+
+training_curves.png — accuracy & loss curves
+
+val_confusion_matrix.png — confusion matrix (validation)
+
+val_acc_vs_precision.png — bar chart (val accuracy vs precision)
+
+val_classification_report.txt — per-class precision/recall/F1
+
+test_scores.txt — test accuracy & macro precision
+
+best_densenet121.keras — best checkpoint
+
+final_densenet121.keras — final saved model
+
+label_to_index.json — class-name ↔ index mapping
+
+demo_predictions.png — grid of random test images with predicted label & confidence
