@@ -1,0 +1,10 @@
+numpy
+matplotlib>=3.8
+scikit-learn
+pillow
+tqdm
+seaborn
+jupyterlab
+kaggle
+python-slugify
+text-unidecode

@@ -1,0 +1,10 @@
+                        precision    recall  f1-score   support
+
+     beer_cider_bottle       0.12      0.15      0.13       558
+        beer_cider_cup       0.37      0.40      0.39      1322
+                  wine       0.38      0.34      0.36      1445
+non_alcoholic_beverage       0.32      0.30      0.31      1102
+
+              accuracy                           0.32      4427
+             macro avg       0.30      0.30      0.30      4427
+          weighted avg       0.33      0.32      0.32      4427
